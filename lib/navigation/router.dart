@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:resume/navigation/swipeable_page.dart';
 import 'package:resume/pages/home/home.dart';
+import 'package:resume/pages/home/home_portrair.dart';
 import 'package:resume/pages/login/login_portrait.dart';
 import 'package:resume/pages/profile/profile.dart';
 

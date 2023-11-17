@@ -8,8 +8,7 @@ import 'package:resume/pages/home/widgets/pill_appbar.dart';
 class HomePortrait extends StatelessWidget {
   HomePortrait({super.key});
 
-  final PillTabBarController tabBarController =
-      PillTabBarController(totalTabCount: 2);
+  final PillTabBarController tabBarController = PillTabBarController(totalTabCount: 2);
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +23,10 @@ class HomePortrait extends StatelessWidget {
                 child: Center(
                     child: Text(
                   "Шаблоны",
-                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimary),
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
                 )),
               ),
               Container(
@@ -33,8 +34,10 @@ class HomePortrait extends StatelessWidget {
                 child: Center(
                     child: Text(
                   "Ваши",
-                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSecondary),
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(color: Theme.of(context).colorScheme.onSecondary),
                 )),
               ),
             ],
@@ -42,8 +45,8 @@ class HomePortrait extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: appPadding, horizontal: appPadding / 2),
+                padding: const EdgeInsets.symmetric(vertical: appPadding, horizontal: appPadding / 2)
+                    .add(EdgeInsets.only(top: 48.0)),
                 child: PillAppBar(
                   name: "Иван Иванович",
                   onAvatarTap: () => Nav.pushProfile(),

@@ -1,10 +1,98 @@
+import 'package:balanced_text/balanced_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login_yandex/flutter_login_yandex.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:resume/constants.dart';
+import 'package:resume/pages/login/widgets/social_login_button.dart';
 
 class LoginPortrait extends StatelessWidget {
-  const LoginPortrait({super.key});
+  LoginPortrait({super.key});
+
+  final _loginYandexPlugin = FlutterLoginYandex();
 
   @override
   Widget build(BuildContext context) {
-    return Material();
+    return Material(
+      child: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              child: SvgPicture.asset(
+                "assets/svg/app_icon.svg",
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: appPadding * 2),
+                child: SingleChildScrollView(
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      BalancedText(
+                        "Для вашего удобства вы можете войти через Яндкекс или Google",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      Divider(),
+                      SocialLoginButton(
+                        title: "Войти с помошью Яндекс Id",
+                        onTap: signInYandex,
+                        borderRadius: BorderRadius.circular(appBorderRadius),
+                        width: 250,
+                        buttonColor: Theme.of(context).colorScheme.primaryContainer,
+                        contentColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                      SizedBox(height: 15),
+                      SocialLoginButton(
+                        title: "Войти с помошью Google",
+                        onTap: () {},
+                        borderRadius: BorderRadius.circular(appBorderRadius),
+                        width: 250,
+                        buttonColor: Theme.of(context).colorScheme.primaryContainer,
+                        contentColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                      SizedBox(
+                        width: 250,
+                        height: 20,
+                        child: Divider(),
+                      ),
+                      SocialLoginButton(
+                        title: "Продолжить без входа",
+                        onTap: () {},
+                        borderRadius: BorderRadius.circular(appBorderRadius),
+                        width: 250,
+                        buttonColor: Theme.of(context).colorScheme.secondaryContainer,
+                        contentColor: Theme.of(context).colorScheme.onSecondaryContainer,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  void signInYandex() async {
+    Map<Object?, Object?>? response;
+    try {
+      response = await _loginYandexPlugin.signIn();
+    } catch (ex) {}
+
+    if (response == null) return;
+
+    String _token;
+    if (response['token'] != null) {
+      _token = response['token'] as String;
+    } else {
+      _token = response['error'] as String;
+    }
+
+    // authController.getInfo(_token);
   }
 }

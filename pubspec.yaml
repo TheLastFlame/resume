@@ -12,6 +12,8 @@ dependencies:
   go_router: ^12.1.1
   swipeable_page_route: ^0.4.0
 
+  flutter_svg: ^2.0.7
+
   logger: ^2.0.2
 
   # StateManager + DI
@@ -21,6 +23,11 @@ dependencies:
   get_it: ^7.6.0
   dropdown_button2: ^3.0.0-beta.7
 
+  balanced_text: ^0.0.3
+
+  # Yandex Login
+  flutter_login_yandex: ^0.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -29,4 +36,9 @@ dev_dependencies:
   build_runner: ^2.4.6
 
 flutter:
+
   uses-material-design: true
+
+  assets:
+    - assets/img/
+    - assets/svg/
