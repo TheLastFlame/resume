@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:resume/constants.dart';
 import 'package:resume/controllers/pill_tabbar.dart';
 import 'package:resume/logger.dart';
+import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/pages/home/widgets/pill_tabbar.dart';
 import 'package:resume/pages/home/widgets/pill_appbar.dart';
 
@@ -46,7 +47,7 @@ class HomePortrait extends StatelessWidget {
                     vertical: appPadding, horizontal: appPadding / 2),
                 child: PillAppBar(
                   name: "Иван Иванович",
-                  onAvatarTap: () => logger.i("Avatar Tap"),
+                  onAvatarTap: () => Nav.pushProfile(),
                   borderRadius: appBorderRadius,
                   profileHeight: 60,
                 ),
