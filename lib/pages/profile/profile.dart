@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:swipeable_page_route/swipeable_page_route.dart';
+import 'package:resume/constants.dart';
+import 'package:resume/navigation/router_delegate.dart';
+import 'package:resume/pages/home/widgets/pill_appbar.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -7,10 +9,20 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MorphingAppBar(
-        title: Text('test'),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: PillAppBar(
+              name: "Иван Иванович",
+              onAvatarTap: () => Nav.fuckGoBack(),
+              borderRadius: appBorderRadius,
+              profileHeight: 60,
+              centerTitle: true,
+            ),
+          ),
+        ],
       ),
-      body: Placeholder(),
     );
   }
 }

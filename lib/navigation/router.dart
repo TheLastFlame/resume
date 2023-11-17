@@ -10,7 +10,7 @@ final rootNavigationKey = GlobalKey<NavigatorState>();
 
 final router = GoRouter(
   navigatorKey: rootNavigationKey,
-  initialLocation: '/login',
+  initialLocation: '/home',
   routes: [
     GoRoute(
       path: "/login",
@@ -18,7 +18,7 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/home',
-      pageBuilder: (context, state) => MaterialPage(child: HomePortrait()),
+      pageBuilder: (context, state) => NoTransitionPage(child: Homepage()),
     ),
     GoRoute(
       path: '/profile',
