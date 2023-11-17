@@ -26,7 +26,7 @@ class PillAppBar extends StatelessWidget {
       height: profileHeight,
       child: Card(
         borderOnForeground: false,
-        elevation: 7,
+        elevation: 4,
         child: MorphingAppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
