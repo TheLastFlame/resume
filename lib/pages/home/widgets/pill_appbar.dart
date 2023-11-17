@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:resume/constants.dart';
 
-class ProfilePill extends StatelessWidget {
-  const ProfilePill({
+class PillAppBar extends StatelessWidget {
+  const PillAppBar({
     super.key,
     required this.borderRadius,
     required this.profileHeight,
@@ -21,9 +22,9 @@ class ProfilePill extends StatelessWidget {
       height: profileHeight,
       child: Card(
         elevation: 7,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: appPadding * 2),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

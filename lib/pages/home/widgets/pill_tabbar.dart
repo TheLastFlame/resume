@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:resume/controllers/pill_tabbar.dart';
-import 'package:resume/logger.dart';
 
 class PillTabBar extends StatelessWidget {
   const PillTabBar({
@@ -26,7 +25,8 @@ class PillTabBar extends StatelessWidget {
               child: Card(
                 elevation: 5,
                 margin: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius)),
                 child: Row(
                   children: tabs.map((tab) => Expanded(child: tab)).toList(),
                 ),
@@ -36,7 +36,8 @@ class PillTabBar extends StatelessWidget {
               builder: (_) => AnimatedPositioned(
                 duration: Durations.medium2,
                 curve: Curves.ease,
-                left: (constains.maxWidth / controller.totalTabCount) * controller.currentTab,
+                left: (constains.maxWidth / controller.totalTabCount) *
+                    controller.currentTab,
                 child: SizedBox(
                   height: tabHeight,
                   width: constains.maxWidth / controller.totalTabCount,
