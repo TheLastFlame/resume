@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:resume/pages/home/widgets/homeappbar.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
-class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+// class Homepage extends StatelessWidget {
+//   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
