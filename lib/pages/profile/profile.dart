@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:resume/constants.dart';
 import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/pages/home/widgets/pill_appbar.dart';
-import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -19,6 +18,7 @@ class ProfilePage extends StatelessWidget {
               onAvatarTap: () => Nav.fuckGoBack(),
               borderRadius: appBorderRadius,
               profileHeight: 60,
+              centerTitle: true,
             ),
           ),
         ],

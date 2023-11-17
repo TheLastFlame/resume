@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resume/constants.dart';
 import 'package:resume/controllers/pill_tabbar.dart';
-import 'package:resume/logger.dart';
 import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/pages/home/widgets/pill_tabbar.dart';
 import 'package:resume/pages/home/widgets/pill_appbar.dart';
