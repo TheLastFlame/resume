@@ -1,4 +1,5 @@
 personal_data: "Личные данные:"
+
 surname: "Фамилия"
 name: "Имя"
 middle_name: "Отчество"
@@ -13,3 +14,11 @@ genders:
   moon_picnic: "Пик Ник на Луне"
   other: "Другое"
 birth_date: "Дата рождения"
+
+contact_data: "Контактные данные:"
+no_contact_data: "Контактные данные не указаны"
+phone: "Телефон"
+email: "Электронная почта"
+social_networks: "Социальные сети:"
+
+add: "Добавить"

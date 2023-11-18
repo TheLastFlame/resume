@@ -21,26 +21,26 @@ class HomePortrait extends StatelessWidget {
             onPageChanged: (index) => tabBarController.changeTab(index),
             children: [
               Center(
-                  child: Text(
-                "Шаблоны",
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall
-                    ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
-              )),
+                child: Text(
+                  "Шаблоны",
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary),
+                ),
+              ),
               Center(
-                  child: Text(
-                "Ваши",
-                style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onSecondary),
-              )),
+                child: Text(
+                  "Ваши",
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSecondary),
+                ),
+              ),
             ],
           ),
           Column(
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    vertical: appPadding, horizontal: appPadding / 2),
+                    vertical: appPadding, horizontal: appPadding),
                 child: PillAppBar(
                   name: "Иван Иванович",
                   onAvatarTap: () => Nav.pushProfile(),
@@ -49,7 +49,8 @@ class HomePortrait extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: appPadding * 2),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: appPadding * 4, vertical: appPadding),
                 child: PillTabBar(
                   controller: tabBarController,
                   tabHeight: 40,

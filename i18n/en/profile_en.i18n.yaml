@@ -10,6 +10,14 @@ genders:
   su27: "Su-27 Fighter"
   katyusha: "BM-13 Katyusha Rocket Launcher"
   sugar_horn: "Sugar Horn 13 rubles each"
-  moon_picnic: "Moon Picnic"
+  moon_picnic: "Moon Traveler"
   other: "Other"
 birth_date: "Date of Birth"
+
+contact_data: "Contact Data:"
+no_contact_data: "No contact data provided"
+phone: "Phone"
+email: "Email"
+social_networks: "Social Networks:"
+
+add: "Add"

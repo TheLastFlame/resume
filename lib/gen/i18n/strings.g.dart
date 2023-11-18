@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 28 (14 per locale)
+/// Strings: 40 (20 per locale)
 ///
-/// Built on 2023-11-18 at 09:05 UTC
+/// Built on 2023-11-18 at 10:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -167,6 +167,12 @@ class _StringsProfileEn {
 	String get gender => 'Gender';
 	late final _StringsProfileGendersEn genders = _StringsProfileGendersEn._(_root);
 	String get birth_date => 'Date of Birth';
+	String get contact_data => 'Contact Data:';
+	String get no_contact_data => 'No contact data provided';
+	String get phone => 'Phone';
+	String get email => 'Email';
+	String get social_networks => 'Social Networks:';
+	String get add => 'Add';
 }
 
 // Path: profile.genders
@@ -182,7 +188,7 @@ class _StringsProfileGendersEn {
 	String get su27 => 'Su-27 Fighter';
 	String get katyusha => 'BM-13 Katyusha Rocket Launcher';
 	String get sugar_horn => 'Sugar Horn 13 rubles each';
-	String get moon_picnic => 'Moon Picnic';
+	String get moon_picnic => 'Moon Traveler';
 	String get other => 'Other';
 }
 
@@ -228,6 +234,12 @@ class _StringsProfileRu implements _StringsProfileEn {
 	@override String get gender => 'Пол';
 	@override late final _StringsProfileGendersRu genders = _StringsProfileGendersRu._(_root);
 	@override String get birth_date => 'Дата рождения';
+	@override String get contact_data => 'Контактные данные:';
+	@override String get no_contact_data => 'Контактные данные не указаны';
+	@override String get phone => 'Телефон';
+	@override String get email => 'Электронная почта';
+	@override String get social_networks => 'Социальные сети:';
+	@override String get add => 'Добавить';
 }
 
 // Path: profile.genders
@@ -264,9 +276,15 @@ extension on _StringsEn {
 			case 'profile.genders.su27': return 'Su-27 Fighter';
 			case 'profile.genders.katyusha': return 'BM-13 Katyusha Rocket Launcher';
 			case 'profile.genders.sugar_horn': return 'Sugar Horn 13 rubles each';
-			case 'profile.genders.moon_picnic': return 'Moon Picnic';
+			case 'profile.genders.moon_picnic': return 'Moon Traveler';
 			case 'profile.genders.other': return 'Other';
 			case 'profile.birth_date': return 'Date of Birth';
+			case 'profile.contact_data': return 'Contact Data:';
+			case 'profile.no_contact_data': return 'No contact data provided';
+			case 'profile.phone': return 'Phone';
+			case 'profile.email': return 'Email';
+			case 'profile.social_networks': return 'Social Networks:';
+			case 'profile.add': return 'Add';
 			default: return null;
 		}
 	}
@@ -289,6 +307,12 @@ extension on _StringsRu {
 			case 'profile.genders.moon_picnic': return 'Пик Ник на Луне';
 			case 'profile.genders.other': return 'Другое';
 			case 'profile.birth_date': return 'Дата рождения';
+			case 'profile.contact_data': return 'Контактные данные:';
+			case 'profile.no_contact_data': return 'Контактные данные не указаны';
+			case 'profile.phone': return 'Телефон';
+			case 'profile.email': return 'Электронная почта';
+			case 'profile.social_networks': return 'Социальные сети:';
+			case 'profile.add': return 'Добавить';
 			default: return null;
 		}
 	}

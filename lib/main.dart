@@ -1,4 +1,4 @@
-import 'package:resume/i18n/strings.g.dart';
+import 'package:resume/gen/i18n/strings.g.dart';
 import 'package:resume/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:resume/navigation/router.dart';
