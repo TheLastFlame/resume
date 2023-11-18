@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx/mobx.dart';
 import 'package:resume/constants.dart';
 import 'package:resume/gen/i18n/strings.g.dart';
-import 'package:resume/pages/profile/widgets/social_network_card.dart';
+
+class SocialNetworksListController {
+  late final ObservableList socialMediaList;
+
+  SocialNetworksListController(List? socialMediaList) {
+    this.socialMediaList = List.from(socialMediaList ?? []).asObservable();
+  }
+}
 
 class SocialNetworksList extends StatelessWidget {
-  const SocialNetworksList({super.key});
+  const SocialNetworksList({super.key, required this.controller});
 
-  // List<Widget>
+  final SocialNetworksListController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +23,20 @@ class SocialNetworksList extends StatelessWidget {
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.all(appPadding),
-        child: Wrap(
-          alignment: WrapAlignment.center,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            Text(
-              t.profile.social_networks,
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            const SizedBox(width: appPadding),
-            SocialNetworksCard(text: t.profile.add, icon: Icons.add),
-          ],
-        ),
+        child: Observer(builder: (_) {
+          return Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(
+                t.profile.social_networks,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              const SizedBox(width: appPadding),
+              ...controller.socialMediaList
+            ],
+          );
+        }),
       ),
     );
   }
