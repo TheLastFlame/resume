@@ -7,4 +7,5 @@ BuildContext get _context => rootNavigationKey.currentContext!;
 class Nav {
   static fuckGoBack() => _context.pop();
   static pushProfile() => _context.push('/profile');
+  static goHome() => _context.go('/home');
 }

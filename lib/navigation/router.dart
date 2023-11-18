@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:resume/navigation/swipeable_page.dart';
@@ -17,11 +18,12 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/home',
-      pageBuilder: (context, state) => const NoTransitionPage(child: Homepage()),
+      pageBuilder: (context, state) => const CupertinoPage(child: Homepage()),
     ),
     GoRoute(
       path: '/profile',
-      pageBuilder: (context, state) => const SwipeablePage(child: ProfilePage()),
+      pageBuilder: (context, state) =>
+          const SwipeablePage(child: ProfilePage()),
     ),
   ],
 );

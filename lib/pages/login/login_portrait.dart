@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobx/mobx.dart';
 import 'package:resume/constants.dart';
 import 'package:resume/logger.dart';
+import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/pages/login/widgets/social_login_button.dart';
 
 class LoginPortrait extends StatelessWidget {
@@ -52,8 +53,10 @@ class LoginPortrait extends StatelessWidget {
                         onTap: signInYandex,
                         borderRadius: BorderRadius.circular(appBorderRadius),
                         width: 250,
-                        buttonColor: Theme.of(context).colorScheme.primaryContainer,
-                        contentColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                        buttonColor:
+                            Theme.of(context).colorScheme.primaryContainer,
+                        contentColor:
+                            Theme.of(context).colorScheme.onPrimaryContainer,
                       ),
                       const SizedBox(height: 15),
                       SocialLoginButton(
@@ -61,8 +64,10 @@ class LoginPortrait extends StatelessWidget {
                         onTap: signInGoogle,
                         borderRadius: BorderRadius.circular(appBorderRadius),
                         width: 250,
-                        buttonColor: Theme.of(context).colorScheme.primaryContainer,
-                        contentColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                        buttonColor:
+                            Theme.of(context).colorScheme.primaryContainer,
+                        contentColor:
+                            Theme.of(context).colorScheme.onPrimaryContainer,
                       ),
                       const SizedBox(
                         width: 250,
@@ -71,11 +76,13 @@ class LoginPortrait extends StatelessWidget {
                       ),
                       SocialLoginButton(
                         title: "Продолжить без входа",
-                        onTap: () {},
+                        onTap: Nav.goHome,
                         borderRadius: BorderRadius.circular(appBorderRadius),
                         width: 250,
-                        buttonColor: Theme.of(context).colorScheme.secondaryContainer,
-                        contentColor: Theme.of(context).colorScheme.onSecondaryContainer,
+                        buttonColor:
+                            Theme.of(context).colorScheme.secondaryContainer,
+                        contentColor:
+                            Theme.of(context).colorScheme.onSecondaryContainer,
                       ),
                     ],
                   ),
