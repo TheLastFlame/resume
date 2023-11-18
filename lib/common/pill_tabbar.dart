@@ -76,7 +76,7 @@ class PillTabBar extends StatelessWidget {
             ),
             Observer(
               builder: (_) => AnimatedPositioned(
-                duration: Durations.short4,
+                duration: Durations.short2,
                 curve: Curves.ease,
                 left: (constains.maxWidth / controller.totalTabCount) *
                     controller.currentPillPosition,
