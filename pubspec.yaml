@@ -30,6 +30,10 @@ dependencies:
 
   # Google Login
   google_sign_in: ^6.1.6
+  slang: ^3.25.0
+  slang_flutter: ^3.25.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

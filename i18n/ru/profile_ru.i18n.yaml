@@ -1,0 +1,15 @@
+personal_data: "Личные данные:"
+surname: "Фамилия"
+name: "Имя"
+middle_name: "Отчество"
+gender: "Пол"
+genders:
+  male: "Мужской"
+  female: "Женский"
+  helicopter: "Боевой вертолёт"
+  su27: "Истребитель Су-27"
+  katyusha: 'Реактивная установка БМ-13 "Катюша"'
+  sugar_horn: "Сахарный рожок 13 рублей штука"
+  moon_picnic: "Пик Ник на Луне"
+  other: "Другое"
+birth_date: "Дата рождения"

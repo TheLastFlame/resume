@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resume/constants.dart';
+import 'package:resume/i18n/strings.g.dart';
 import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/pages/home/widgets/pill_appbar.dart';
 import 'package:resume/pages/profile/widgets/datepicker1.dart';
@@ -28,7 +29,7 @@ class ProfilePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: appPadding * 2),
             child: Text(
-              'Личные данные:',
+              t.profile.personal_data,
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
@@ -38,36 +39,36 @@ class ProfilePage extends StatelessWidget {
               child: Column(
                 children: [
                   TextField1(
-                    title: 'Фамилия',
+                    title: t.profile.surname,
                     controller: TextEditingController(),
                     autofillHints: const [AutofillHints.familyName],
                   ),
                   TextField1(
-                    title: 'Имя',
+                    title: t.profile.name,
                     controller: TextEditingController(),
                     autofillHints: const [AutofillHints.givenName],
                   ),
                   TextField1(
-                    title: 'Отчество',
+                    title: t.profile.middle_name,
                     controller: TextEditingController(),
                     autofillHints: const [AutofillHints.middleName],
                   ),
                   DropdownSwitcher1(
-                    hint: 'Пол',
+                    hint: t.profile.gender,
                     onChanged: (value) {},
-                    options: const [
-                      'Мужской',
-                      'Женский',
-                      'Боевой вертолёт',
-                      'Истребитель Су-27',
-                      'Реактивная установка БМ-13 "Катюша"',
-                      'Сахарный рожок 13 рублей штука',
-                      'Пик Ник на Луне',
-                      'Другое'
+                    options: [
+                      t.profile.genders.male,
+                      t.profile.genders.female,
+                      t.profile.genders.helicopter,
+                      t.profile.genders.su27,
+                      t.profile.genders.katyusha,
+                      t.profile.genders.sugar_horn,
+                      t.profile.genders.moon_picnic,
+                      t.profile.genders.other,
                     ],
                   ),
                   Datepicker1(
-                    hint: 'Дата рождения',
+                    hint: t.profile.birth_date,
                     controller: TextEditingController(),
                   ),
                 ],
