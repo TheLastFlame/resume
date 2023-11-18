@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:resume/constants.dart';
-import 'package:resume/controllers/pill_tabbar.dart';
 import 'package:resume/gen/i18n/strings.g.dart';
 import 'package:resume/navigation/router_delegate.dart';
-import 'package:resume/pages/home/widgets/pill_appbar.dart';
-import 'package:resume/pages/home/widgets/pill_tabbar.dart';
+import 'package:resume/common/pill_appbar.dart';
+import 'package:resume/common/pill_tabbar.dart';
 import 'package:resume/pages/profile/widgets/datepicker1.dart';
 import 'package:resume/pages/profile/widgets/dropdown_switcher1.dart';
 import 'package:resume/pages/profile/widgets/social_networks_list.dart';
@@ -13,8 +12,9 @@ import 'package:resume/pages/profile/widgets/textfield1.dart';
 class ProfilePortrait extends StatelessWidget {
   ProfilePortrait({super.key});
 
-  final PillTabBarController tabBarController =
-      PillTabBarController(totalTabCount: 2);
+  final pageViewController = PageController();
+  late final tabBarController =
+      PillTabBarController(pageViewController: pageViewController);
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,7 @@ class ProfilePortrait extends StatelessWidget {
       body: Stack(
         children: [
           PageView(
+            controller: pageViewController,
             onPageChanged: (index) => tabBarController.changeTab(index),
             children: const [
               PersonalData(),

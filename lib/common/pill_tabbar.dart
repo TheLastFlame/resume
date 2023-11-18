@@ -1,6 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:resume/controllers/pill_tabbar.dart';
+
+import 'package:mobx/mobx.dart';
+part '../gen/common/pill_tabbar.g.dart';
+
+class PillTabBarController = _PillTabBarControllerBase
+    with _$PillTabBarController;
+
+abstract class _PillTabBarControllerBase with Store {
+  _PillTabBarControllerBase(
+      {required this.pageViewController, this.totalTabCount = 2}) {
+    pageViewController.addListener(() {
+      if (pageViewController.page != null) {
+        currentPillPosition = pageViewController.page ?? 0;
+      }
+    });
+  }
+  final int totalTabCount;
+
+  final PageController pageViewController;
+
+  @observable
+  double currentPillPosition = 0;
+
+  @action
+  void changeTab(int index) => pageViewController.animateToPage(
+        index,
+        duration: Durations.short4,
+        curve: Curves.ease,
+      );
+}
 
 class PillTabBar extends StatelessWidget {
   const PillTabBar({
@@ -28,16 +57,29 @@ class PillTabBar extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(borderRadius)),
                 child: Row(
-                  children: tabs.map((tab) => Expanded(child: tab)).toList(),
+                  children: tabs
+                      .asMap()
+                      .entries
+                      .map(
+                        (tab) => Expanded(
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            onTap: () => controller.changeTab(tab.key),
+                            borderRadius: BorderRadius.circular(borderRadius),
+                            child: tab.value,
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
             ),
             Observer(
               builder: (_) => AnimatedPositioned(
-                duration: Durations.medium2,
+                duration: Durations.short4,
                 curve: Curves.ease,
                 left: (constains.maxWidth / controller.totalTabCount) *
-                    controller.currentTab,
+                    controller.currentPillPosition,
                 child: SizedBox(
                   height: tabHeight,
                   width: constains.maxWidth / controller.totalTabCount,

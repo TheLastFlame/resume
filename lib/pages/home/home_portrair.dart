@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:resume/constants.dart';
-import 'package:resume/controllers/pill_tabbar.dart';
 import 'package:resume/navigation/router_delegate.dart';
-import 'package:resume/pages/home/widgets/pill_tabbar.dart';
-import 'package:resume/pages/home/widgets/pill_appbar.dart';
+import 'package:resume/common/pill_tabbar.dart';
+import 'package:resume/common/pill_appbar.dart';
 
 class HomePortrait extends StatelessWidget {
   HomePortrait({super.key});
 
-  final PillTabBarController tabBarController =
-      PillTabBarController(totalTabCount: 2);
+  final pageViewController = PageController();
+
+  late final tabBarController =
+      PillTabBarController(pageViewController: pageViewController);
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class HomePortrait extends StatelessWidget {
       body: Stack(
         children: [
           PageView(
+            controller: pageViewController,
             onPageChanged: (index) => tabBarController.changeTab(index),
             children: [
               Center(
