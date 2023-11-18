@@ -28,6 +28,9 @@ dependencies:
   # Yandex Login
   flutter_login_yandex: ^0.0.4
 
+  # Google Login
+  google_sign_in: ^6.1.6
+
 dev_dependencies:
 
   flutter_test:
