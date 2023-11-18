@@ -36,7 +36,7 @@ class LoginPortrait extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      Divider(),
+                      const Divider(),
                       SocialLoginButton(
                         title: "Войти с помошью Яндекс Id",
                         onTap: signInYandex,
@@ -45,7 +45,7 @@ class LoginPortrait extends StatelessWidget {
                         buttonColor: Theme.of(context).colorScheme.primaryContainer,
                         contentColor: Theme.of(context).colorScheme.onPrimaryContainer,
                       ),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       SocialLoginButton(
                         title: "Войти с помошью Google",
                         onTap: () {},
@@ -54,7 +54,7 @@ class LoginPortrait extends StatelessWidget {
                         buttonColor: Theme.of(context).colorScheme.primaryContainer,
                         contentColor: Theme.of(context).colorScheme.onPrimaryContainer,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 250,
                         height: 20,
                         child: Divider(),
@@ -86,11 +86,11 @@ class LoginPortrait extends StatelessWidget {
 
     if (response == null) return;
 
-    String _token;
+    String token;
     if (response['token'] != null) {
-      _token = response['token'] as String;
+      token = response['token'] as String;
     } else {
-      _token = response['error'] as String;
+      token = response['error'] as String;
     }
 
     // authController.getInfo(_token);

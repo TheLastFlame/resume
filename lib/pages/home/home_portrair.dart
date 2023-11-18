@@ -8,45 +8,39 @@ import 'package:resume/pages/home/widgets/pill_appbar.dart';
 class HomePortrait extends StatelessWidget {
   HomePortrait({super.key});
 
-  final PillTabBarController tabBarController = PillTabBarController(totalTabCount: 2);
+  final PillTabBarController tabBarController =
+      PillTabBarController(totalTabCount: 2);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(toolbarHeight: 0, forceMaterialTransparency: true),
       body: Stack(
         children: [
           PageView(
             onPageChanged: (index) => tabBarController.changeTab(index),
             children: [
-              Container(
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
-                child: Center(
-                    child: Text(
-                  "Шаблоны",
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall
-                      ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
-                )),
-              ),
-              Container(
-                color: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
-                child: Center(
-                    child: Text(
-                  "Ваши",
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall
-                      ?.copyWith(color: Theme.of(context).colorScheme.onSecondary),
-                )),
-              ),
+              Center(
+                  child: Text(
+                "Шаблоны",
+                style: Theme.of(context)
+                    .textTheme
+                    .displaySmall
+                    ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+              )),
+              Center(
+                  child: Text(
+                "Ваши",
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSecondary),
+              )),
             ],
           ),
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: appPadding, horizontal: appPadding / 2)
-                    .add(EdgeInsets.only(top: 48.0)),
+                padding: const EdgeInsets.symmetric(
+                    vertical: appPadding, horizontal: appPadding / 2),
                 child: PillAppBar(
                   name: "Иван Иванович",
                   onAvatarTap: () => Nav.pushProfile(),

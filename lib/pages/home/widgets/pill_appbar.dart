@@ -29,6 +29,7 @@ class PillAppBar extends StatelessWidget {
         elevation: 4,
         child: MorphingAppBar(
           elevation: 0,
+          primary: false,
           backgroundColor: Colors.transparent,
           foregroundColor: Theme.of(context).textTheme.titleMedium?.color,
           shape: RoundedRectangleBorder(
