@@ -34,39 +34,44 @@ class ProfilePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: appPadding * 3),
-            child: Column(
-              children: [
-                TextField1(
-                  title: 'Фамилия',
-                  controller: TextEditingController(),
-                ),
-                TextField1(
-                  title: 'Имя',
-                  controller: TextEditingController(),
-                ),
-                TextField1(
-                  title: 'Отчество',
-                  controller: TextEditingController(),
-                ),
-                DropdownSwitcher1(
-                  hint: 'Пол',
-                  onChanged: (value) {},
-                  options: const [
-                    'Мужской',
-                    'Женский',
-                    'Боевой вертолёт',
-                    'Истребитель Су-27',
-                    'Реактивная установка БМ-13 "Катюша',
-                    'Сахарный рожок 13 рублей штука',
-                    'Пик Ник на Луне',
-                    'Другое'
-                  ],
-                ),
-                Datepicker1(
-                  hint: 'Дата рождения',
-                  controller: TextEditingController(),
-                ),
-              ],
+            child: AutofillGroup(
+              child: Column(
+                children: [
+                  TextField1(
+                    title: 'Фамилия',
+                    controller: TextEditingController(),
+                    autofillHints: const [AutofillHints.familyName],
+                  ),
+                  TextField1(
+                    title: 'Имя',
+                    controller: TextEditingController(),
+                    autofillHints: const [AutofillHints.givenName],
+                  ),
+                  TextField1(
+                    title: 'Отчество',
+                    controller: TextEditingController(),
+                    autofillHints: const [AutofillHints.middleName],
+                  ),
+                  DropdownSwitcher1(
+                    hint: 'Пол',
+                    onChanged: (value) {},
+                    options: const [
+                      'Мужской',
+                      'Женский',
+                      'Боевой вертолёт',
+                      'Истребитель Су-27',
+                      'Реактивная установка БМ-13 "Катюша"',
+                      'Сахарный рожок 13 рублей штука',
+                      'Пик Ник на Луне',
+                      'Другое'
+                    ],
+                  ),
+                  Datepicker1(
+                    hint: 'Дата рождения',
+                    controller: TextEditingController(),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
