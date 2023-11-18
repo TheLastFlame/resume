@@ -23,7 +23,7 @@ class PillTabBar extends StatelessWidget {
             SizedBox(
               height: tabHeight,
               child: Card(
-                elevation: 5,
+                elevation: 3,
                 margin: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(borderRadius)),
