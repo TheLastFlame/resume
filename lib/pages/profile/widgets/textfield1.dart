@@ -49,42 +49,56 @@ class TextField1 extends StatelessWidget {
               ],
             ),
           ),
-          Card(
-            elevation: 2,
-            margin: EdgeInsets.zero,
-            child: TextFormField(
-              controller: controller,
-              obscureText: isObscure,
-              validator: validator,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              inputFormatters: formatters,
-              autofillHints: autofillHints,
-              textInputAction: textInputAction,
-              decoration: InputDecoration(
-                // fillColor:
-                //     Theme.of(context).colorScheme.primary.withOpacity(0.2),
-                // filled: true,
-                hintText: hint,
-                isDense: true,
-                contentPadding: const EdgeInsets.symmetric(
-                    vertical: appPadding * 2.5, horizontal: appPadding * 2),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(cardBorderRadius),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 0,
-                    color: Theme.of(context).colorScheme.background,
+          Stack(
+            children: [
+              Card(
+                margin: EdgeInsets.zero,
+                elevation: 2,
+                child: TextField(
+                  decoration: InputDecoration(
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: appPadding * 2.5, horizontal: appPadding * 2),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius),
+                        borderSide: BorderSide.none),
                   ),
-                  borderRadius: BorderRadius.circular(cardBorderRadius),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: Theme.of(context).colorScheme.primary, width: 2),
-                  borderRadius: BorderRadius.circular(cardBorderRadius),
                 ),
               ),
-            ),
+              TextFormField(
+                controller: controller,
+                obscureText: isObscure,
+                validator: validator,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                inputFormatters: formatters,
+                autofillHints: autofillHints,
+                textInputAction: textInputAction,
+                decoration: InputDecoration(
+                  // fillColor:
+                  //     Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                  // filled: true,
+                  hintText: hint,
+                  isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(
+                      vertical: appPadding * 2.5, horizontal: appPadding * 2),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(cardBorderRadius),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 0,
+                      color: Theme.of(context).colorScheme.background,
+                    ),
+                    borderRadius: BorderRadius.circular(cardBorderRadius),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Theme.of(context).colorScheme.primary, width: 2),
+                    borderRadius: BorderRadius.circular(cardBorderRadius),
+                  ),
+                ),
+              ),
+            ],
           )
         ],
       ),

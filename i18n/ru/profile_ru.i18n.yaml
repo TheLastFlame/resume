@@ -1,4 +1,4 @@
-personal_data: "Личные данные:"
+personal_data: "Личные данные"
 
 surname: "Фамилия"
 name: "Имя"
@@ -15,7 +15,7 @@ genders:
   other: "Другое"
 birth_date: "Дата рождения"
 
-contact_data: "Контактные данные:"
+contact_data: "Контактные данные"
 no_contact_data: "Контактные данные не указаны"
 phone: "Телефон"
 email: "Электронная почта"

@@ -16,8 +16,12 @@ class ContactDataController {
 
   void saveData() {
     _service.updateData(
-      phone: phoneController.text,
-      email: emailController.text,
+      phone: phoneValidator(phoneController.text) == null
+          ? phoneController.text
+          : null,
+      email: emailValidator(emailController.text) == null
+          ? emailController.text
+          : null,
     );
     _service.saveData();
   }

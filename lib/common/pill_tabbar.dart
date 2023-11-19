@@ -105,7 +105,10 @@ class PillTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(title),
+      child: Text(
+        title,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

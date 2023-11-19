@@ -1,4 +1,4 @@
-personal_data: "Personal Data:"
+personal_data: "Personal Data"
 surname: "Surname"
 name: "Name"
 middle_name: "Middle Name"
@@ -14,7 +14,7 @@ genders:
   other: "Other"
 birth_date: "Date of Birth"
 
-contact_data: "Contact Data:"
+contact_data: "Contact Data"
 no_contact_data: "No contact data provided"
 phone: "Phone"
 email: "Email"

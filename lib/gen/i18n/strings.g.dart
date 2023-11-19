@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 40 (20 per locale)
 ///
-/// Built on 2023-11-18 at 10:41 UTC
+/// Built on 2023-11-19 at 00:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -160,14 +160,14 @@ class _StringsProfileEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get personal_data => 'Personal Data:';
+	String get personal_data => 'Personal Data';
 	String get surname => 'Surname';
 	String get name => 'Name';
 	String get middle_name => 'Middle Name';
 	String get gender => 'Gender';
 	late final _StringsProfileGendersEn genders = _StringsProfileGendersEn._(_root);
 	String get birth_date => 'Date of Birth';
-	String get contact_data => 'Contact Data:';
+	String get contact_data => 'Contact Data';
 	String get no_contact_data => 'No contact data provided';
 	String get phone => 'Phone';
 	String get email => 'Email';
@@ -227,14 +227,14 @@ class _StringsProfileRu implements _StringsProfileEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get personal_data => 'Личные данные:';
+	@override String get personal_data => 'Личные данные';
 	@override String get surname => 'Фамилия';
 	@override String get name => 'Имя';
 	@override String get middle_name => 'Отчество';
 	@override String get gender => 'Пол';
 	@override late final _StringsProfileGendersRu genders = _StringsProfileGendersRu._(_root);
 	@override String get birth_date => 'Дата рождения';
-	@override String get contact_data => 'Контактные данные:';
+	@override String get contact_data => 'Контактные данные';
 	@override String get no_contact_data => 'Контактные данные не указаны';
 	@override String get phone => 'Телефон';
 	@override String get email => 'Электронная почта';
@@ -265,7 +265,7 @@ class _StringsProfileGendersRu implements _StringsProfileGendersEn {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'profile.personal_data': return 'Personal Data:';
+			case 'profile.personal_data': return 'Personal Data';
 			case 'profile.surname': return 'Surname';
 			case 'profile.name': return 'Name';
 			case 'profile.middle_name': return 'Middle Name';
@@ -279,7 +279,7 @@ extension on _StringsEn {
 			case 'profile.genders.moon_picnic': return 'Moon Traveler';
 			case 'profile.genders.other': return 'Other';
 			case 'profile.birth_date': return 'Date of Birth';
-			case 'profile.contact_data': return 'Contact Data:';
+			case 'profile.contact_data': return 'Contact Data';
 			case 'profile.no_contact_data': return 'No contact data provided';
 			case 'profile.phone': return 'Phone';
 			case 'profile.email': return 'Email';
@@ -293,7 +293,7 @@ extension on _StringsEn {
 extension on _StringsRu {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'profile.personal_data': return 'Личные данные:';
+			case 'profile.personal_data': return 'Личные данные';
 			case 'profile.surname': return 'Фамилия';
 			case 'profile.name': return 'Имя';
 			case 'profile.middle_name': return 'Отчество';
@@ -307,7 +307,7 @@ extension on _StringsRu {
 			case 'profile.genders.moon_picnic': return 'Пик Ник на Луне';
 			case 'profile.genders.other': return 'Другое';
 			case 'profile.birth_date': return 'Дата рождения';
-			case 'profile.contact_data': return 'Контактные данные:';
+			case 'profile.contact_data': return 'Контактные данные';
 			case 'profile.no_contact_data': return 'Контактные данные не указаны';
 			case 'profile.phone': return 'Телефон';
 			case 'profile.email': return 'Электронная почта';

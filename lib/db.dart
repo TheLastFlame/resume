@@ -1,4 +1,5 @@
 import 'package:get_storage/get_storage.dart';
+import 'package:resume/gen/i18n/strings.g.dart';
 
 abstract interface class UserDataRepo {
   String getSurname();
@@ -30,17 +31,17 @@ class UserDataByGetStorage implements UserDataRepo {
 
   @override
   String getSurname() {
-    return storage.read('surname') ?? '';
+    return storage.read('surname') ?? t.profile.surname;
   }
 
   @override
   String getName() {
-    return storage.read('name') ?? '';
+    return storage.read('name') ?? t.profile.name;
   }
 
   @override
   String getMiddleName() {
-    return storage.read('middleName') ?? '';
+    return storage.read('middleName') ?? t.profile.middle_name;
   }
 
   @override

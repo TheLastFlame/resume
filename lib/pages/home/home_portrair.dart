@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:resume/constants.dart';
 import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/common/pill_tabbar.dart';
 import 'package:resume/common/pill_appbar.dart';
+import 'package:resume/services/profile_service.dart';
 
-class HomePortrait extends StatelessWidget {
-  HomePortrait({super.key});
+class HomePortrait extends StatefulWidget {
+  const HomePortrait({super.key});
 
+  @override
+  State<HomePortrait> createState() => _HomePortraitState();
+}
+
+class _HomePortraitState extends State<HomePortrait> {
   final pageViewController = PageController();
 
   late final tabBarController =
@@ -14,13 +21,14 @@ class HomePortrait extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pService = GetIt.I<ProfileService>();
+
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0, forceMaterialTransparency: true),
       body: Stack(
         children: [
           PageView(
             controller: pageViewController,
-            onPageChanged: (index) => tabBarController.changeTab(index),
             children: [
               Center(
                 child: Text(
@@ -31,7 +39,7 @@ class HomePortrait extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  "Ваши",
+                  "Сохранено",
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary),
                 ),
@@ -44,7 +52,7 @@ class HomePortrait extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     vertical: appPadding, horizontal: appPadding),
                 child: PillAppBar(
-                  name: "Иван Иванович",
+                  name: '${pService.surname} ${pService.name}',
                   onAvatarTap: () => Nav.pushProfile(),
                   borderRadius: appBorderRadius,
                   profileHeight: 60,
@@ -59,7 +67,7 @@ class HomePortrait extends StatelessWidget {
                   borderRadius: appBorderRadius,
                   tabs: const [
                     PillTab(title: "Шаблоны"),
-                    PillTab(title: "Ваши"),
+                    PillTab(title: "Сохранено"),
                   ],
                 ),
               ),
