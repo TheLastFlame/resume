@@ -4,6 +4,7 @@ import 'package:resume/constants.dart';
 import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/common/pill_tabbar.dart';
 import 'package:resume/common/pill_appbar.dart';
+import 'package:resume/pages/home/widgets/templates_grid.dart';
 import 'package:resume/services/profile_service.dart';
 
 class HomePortrait extends StatefulWidget {
@@ -29,21 +30,9 @@ class _HomePortraitState extends State<HomePortrait> {
         children: [
           PageView(
             controller: pageViewController,
-            children: [
-              Center(
-                child: Text(
-                  "Шаблоны",
-                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimary),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Сохранено",
-                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSecondary),
-                ),
-              ),
+            children: const [
+              TemplatesGrid(),
+              Placeholder(),
             ],
           ),
           Column(
@@ -52,8 +41,24 @@ class _HomePortraitState extends State<HomePortrait> {
                 padding: const EdgeInsets.symmetric(
                     vertical: appPadding, horizontal: appPadding),
                 child: PillAppBar(
-                  name: '${pService.surname} ${pService.name}',
-                  onAvatarTap: () => Nav.pushProfile(),
+                  name: '${pService.name} ${pService.surname}',
+                  actions: [
+                    Padding(
+                      padding: const EdgeInsets.all(appPadding),
+                      child: InkResponse(
+                        radius: 25,
+                        onTap: () => Nav.pushProfile(),
+                        child: CircleAvatar(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.secondaryContainer,
+                          foregroundColor: Theme.of(context)
+                              .colorScheme
+                              .onSecondaryContainer,
+                          child: const Icon(Icons.person),
+                        ),
+                      ),
+                    ),
+                  ],
                   borderRadius: appBorderRadius,
                   profileHeight: 60,
                 ),

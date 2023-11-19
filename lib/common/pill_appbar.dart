@@ -8,12 +8,12 @@ class PillAppBar extends StatelessWidget {
     required this.borderRadius,
     required this.profileHeight,
     required this.name,
-    required this.onAvatarTap,
+    this.actions = const [],
     this.centerTitle = false,
   });
 
   final String name;
-  final VoidCallback onAvatarTap;
+  final List<Widget> actions;
 
   final double borderRadius;
   final double profileHeight;
@@ -30,21 +30,13 @@ class PillAppBar extends StatelessWidget {
         child: MorphingAppBar(
           elevation: 0,
           primary: false,
+          centerTitle: centerTitle,
           backgroundColor: Colors.transparent,
           foregroundColor: Theme.of(context).textTheme.titleMedium?.color,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(cardBorderRadius)),
           title: Text(name),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(appPadding),
-              child: InkResponse(
-                radius: 25,
-                onTap: onAvatarTap,
-                child: const CircleAvatar(),
-              ),
-            ),
-          ],
+          actions: actions,
         ),
       ),
     );

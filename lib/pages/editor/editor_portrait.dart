@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:resume/constants.dart';
-import 'package:resume/gen/i18n/strings.g.dart';
-import 'package:resume/navigation/router_delegate.dart';
 import 'package:resume/common/pill_appbar.dart';
 import 'package:resume/common/pill_tabbar.dart';
-import 'package:resume/pages/profile/widgets/contact_data.dart';
-import 'package:resume/pages/profile/widgets/personal_data.dart';
-import 'package:resume/services/profile_service.dart';
+import 'package:resume/constants.dart';
+import 'package:resume/pages/editor/widgets/editor_list.dart';
 
-class ProfilePortrait extends StatelessWidget {
-  ProfilePortrait({super.key});
+import 'package:share_plus/share_plus.dart';
+
+class EditorPortait extends StatelessWidget {
+  EditorPortait({super.key});
 
   final pageViewController = PageController();
   late final tabBarController =
@@ -18,7 +15,6 @@ class ProfilePortrait extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final service = GetIt.I<ProfileService>();
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0, forceMaterialTransparency: true),
       body: Stack(
@@ -27,8 +23,8 @@ class ProfilePortrait extends StatelessWidget {
             controller: pageViewController,
             onPageChanged: (index) => tabBarController.changeTab(index),
             children: const [
-              PersonalData(),
-              ContactData(),
+              EditorList(),
+              Placeholder(),
             ],
           ),
           Column(
@@ -37,26 +33,23 @@ class ProfilePortrait extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     vertical: appPadding, horizontal: appPadding),
                 child: PillAppBar(
-                  name: '${service.name} ${service.surname}',
+                  centerTitle: true,
+                  name: 'Создание резюме',
+                  borderRadius: appBorderRadius,
+                  profileHeight: 60,
                   actions: [
                     Padding(
-                      padding: const EdgeInsets.all(appPadding),
-                      child: InkResponse(
-                        onTap: () => Nav.fuckGoBack(),
-                        radius: 25,
-                        child: CircleAvatar(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.secondaryContainer,
-                          foregroundColor: Theme.of(context)
-                              .colorScheme
-                              .onSecondaryContainer,
-                          child: const Icon(Icons.person),
-                        ),
+                      padding: const EdgeInsets.only(right: appPadding),
+                      child: IconButton(
+                        onPressed: () {
+                          Share.share(
+                              'check out my website https://example.com',
+                              subject: 'Look what I made!');
+                        },
+                        icon: const Icon(Icons.share),
                       ),
                     ),
                   ],
-                  borderRadius: appBorderRadius,
-                  profileHeight: 60,
                 ),
               ),
               Padding(
@@ -67,8 +60,8 @@ class ProfilePortrait extends StatelessWidget {
                   tabHeight: 40,
                   borderRadius: appBorderRadius,
                   tabs: [
-                    PillTab(title: t.profile.personal_data),
-                    PillTab(title: t.profile.contact_data),
+                    PillTab(title: 'Редактор'),
+                    PillTab(title: 'Предпросмотр'),
                   ],
                 ),
               ),
